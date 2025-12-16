@@ -71,15 +71,19 @@ def get_payload_by_id(payloads, payload_id):
 
 
 def get_detection_payloads(payloads):
-    """Filtra y retorna solo los payloads de tipo detección.
+    """Retorna los payloads de detección.
 
-    Se asume que el JSON tiene un campo "type" o similar. Ajusta el filtro
-    según la estructura real de tus payloads.
+    En tu caso concreto, el archivo `detection.json` ya contiene únicamente
+    payloads de detección con la estructura:
+
+        {
+            "id": "cypher-id-001",
+            "description": "...",
+            "severity": "medium",
+            "payload": "..."
+        }
+
+    Por lo tanto, no necesitamos filtrar por ningún campo extra; simplemente
+    devolvemos la lista tal cual.
     """
-    # Ejemplo genérico: payloads que tengan campo "category" == "detection"
-    detection_payloads = []
-    for p in payloads:
-        category = p.get("category") or p.get("type")
-        if category and str(category).lower() == "detection":
-            detection_payloads.append(p)
-    return detection_payloads
+    return payloads
