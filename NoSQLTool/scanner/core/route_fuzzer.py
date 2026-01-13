@@ -19,7 +19,7 @@ class RouteFuzzer:
             url = self.base_url + ep
             try:
                 r = requests.get(url, timeout=self.timeout)
-                if r.status_code < 500:  
+                if r.status_code < 404:  
                     found.add(ep)
             except:
                 pass
