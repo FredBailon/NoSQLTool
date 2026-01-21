@@ -10,7 +10,7 @@ def main() -> None:
     mode = "detection"    # o "exploitation" si tienes ese json
 
     # target_path = "/ruta" para probar solo un endpoint concreto
-    target_path = "/usuarios"      # None = todos los endpoints del swagger
+    target_path = None      # None = todos los endpoints del swagger
 
     print("Iniciando deteccion de posibles inyecciones NoSQL...")
 
