@@ -1,7 +1,7 @@
-SUPPORTED_ENGINES = {"couchdb", "mongo", "neo4j"}
+SUPPORTED_ENGINES = {"couchdb", "mongodb", "neo4j"}
 SUPPORTED_MODES = {"detection", "exploitation"}
 
-def resolve_payload_url(base, engine, mode):
+def resolve_payload_url(base, commit, engine, mode):
     engine = engine.lower()
     mode = mode.lower()
 
@@ -11,4 +11,4 @@ def resolve_payload_url(base, engine, mode):
     if mode not in SUPPORTED_MODES:
         raise ValueError(f"Modo no soportado: {mode}")
 
-    return f"{base}/{engine}/{mode}.json"
+    return f"{base}/{commit}/{engine}/{mode}.json"
