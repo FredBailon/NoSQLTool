@@ -13,7 +13,7 @@ def download_if_updated(url, cache_file, etag_file, timeout):
         url,
         headers=headers,
         timeout=timeout,
-        allow_redirects=False
+        allow_redirects=True
     )
 
     if response.status_code == 304:

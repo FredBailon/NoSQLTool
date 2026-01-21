@@ -4,15 +4,20 @@ from payloads.cache import download_if_updated
 from payloads.loader import load_payloads
 import os
 
-engine = "neo4j"
+engine = "mongo"
 mode = "detection"
 
-url = resolve_payload_url(GITHUB_RAW_BASE, REPO_COMMIT, engine, mode)
+url = resolve_payload_url(GITHUB_RAW_BASE, engine, mode)
 
 cache_file = f"{CACHE_DIR}/{engine}_{mode}.json"
 etag_file = f"{cache_file}.etag"
 
-download_if_updated(url, cache_file, etag_file, FETCH_TIMEOUT)
+updated = download_if_updated(url, cache_file, etag_file, FETCH_TIMEOUT)
+
+if updated:
+    print(f"Cache actualizado desde GitHub")
+else:
+    print(f"Cache sin cambios (ETag valido)")
 
 payloads = load_payloads(cache_file)
 
