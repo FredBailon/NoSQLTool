@@ -232,9 +232,15 @@ def _run_single_test_case(base_url: str, test_case: TestCase) -> TestResult:
     )
 
 
-def _load_payloads_for_engine(engine: str, mode: str) -> List[str]:
-    url = resolve_payload_url(GITHUB_RAW_BASE, engine, mode)
-    cache_file = f"{CACHE_DIR}/{engine}_{mode}.json"
+def _load_payloads_for_engine(engine: str, mode: str, payload_file: Optional[str] = None) -> List[str]:
+    url = resolve_payload_url(GITHUB_RAW_BASE, engine, mode, payload_file=payload_file)
+
+    if payload_file:
+        safe_name = payload_file.replace(".json", "").strip()
+        cache_file = f"{CACHE_DIR}/{engine}_{mode}_{safe_name}.json"
+    else:
+        cache_file = f"{CACHE_DIR}/{engine}_{mode}.json"
+
     etag_file = f"{cache_file}.etag"
 
     download_if_updated(url, cache_file, etag_file, FETCH_TIMEOUT)
@@ -287,6 +293,7 @@ def run_detection(
     swagger_path: str,
     engine: str = "neo4j",
     mode: str = "detection",
+    payload_file: Optional[str] = None,
     target_path: Optional[str] = None,
     max_workers: int = 10,
     base_url_override: Optional[str] = None,
@@ -296,6 +303,7 @@ def run_detection(
     - swagger_path: ruta local al archivo swagger.json
     - engine: motor NoSQL (mongo, couchdb, neo4j, ...)
     - mode: tipo de payloads (detection / exploitation)
+        - payload_file: nombre del json dentro de engine/mode (ej. "error_based" o "error_based.json")
     - target_path: si se indica, solo prueba ese endpoint (por ejemplo, "/users")
     - max_workers: numero maximo de hilos en paralelo
     - base_url_override: si se indica, se usara esta URL base
@@ -312,7 +320,7 @@ def run_detection(
     if not endpoints:
         raise ValueError("No se encontraron endpoints con parametros query/body para probar")
 
-    payloads = _load_payloads_for_engine(engine, mode)
+    payloads = _load_payloads_for_engine(engine, mode, payload_file=payload_file)
     if not payloads:
         raise ValueError("No se cargaron payloads para el motor/modo especificados")
 

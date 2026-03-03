@@ -8,6 +8,7 @@ def main() -> None:
 
     engine = "neo4j"      # debe coincidir con los payloads disponibles
     mode = "detection"    # o "exploitation" si tienes ese json
+    payload_file = "error_based"  # tomara: neo4j/detection/error_based.json
 
     # target_path = "/ruta" para probar solo un endpoint concreto
     target_path = None      # None = todos los endpoints del swagger
@@ -18,6 +19,7 @@ def main() -> None:
         swagger_path=swagger_path,
         engine=engine,
         mode=mode,
+        payload_file=payload_file,
         target_path=target_path,
         max_workers=10,
         base_url_override=base_url,
