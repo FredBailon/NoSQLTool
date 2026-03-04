@@ -1,13 +1,21 @@
 import os
 import requests
 
-def download_if_updated(url, cache_file, etag_file, timeout):
+
+def download_if_updated(url, cache_file, etag_file, timeout, force_revalidate=False):
     os.makedirs(os.path.dirname(cache_file), exist_ok=True)
 
     headers = {}
+    if force_revalidate:
+        # Fuerza revalidacion en caches intermedios/CDN cuando se necesite.
+        headers["Cache-Control"] = "no-cache"
+        headers["Pragma"] = "no-cache"
+
     if os.path.exists(etag_file):
-        with open(etag_file, "r") as f:
-            headers["If-None-Match"] = f.read().strip()
+        with open(etag_file, "r", encoding="utf-8") as f:
+            etag = f.read().strip()
+            if etag:
+                headers["If-None-Match"] = etag
 
     response = requests.get(
         url,
@@ -25,8 +33,12 @@ def download_if_updated(url, cache_file, etag_file, timeout):
     with open(cache_file, "w", encoding="utf-8") as f:
         f.write(response.text)
 
-    if etag := response.headers.get("ETag"):
-        with open(etag_file, "w") as f:
-            f.write(etag)
+    response_etag = response.headers.get("ETag")
+    if response_etag:
+        with open(etag_file, "w", encoding="utf-8") as f:
+            f.write(response_etag)
+    elif os.path.exists(etag_file):
+        # Si el origen deja de enviar ETag, evita reutilizar uno obsoleto.
+        os.remove(etag_file)
 
     return True
