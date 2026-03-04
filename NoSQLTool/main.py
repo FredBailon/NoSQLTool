@@ -26,6 +26,7 @@ def main() -> None:
     base_url = os.getenv("BASE_URL", "http://localhost:3000")
     engine = os.getenv("ENGINE", "neo4j")
     mode = os.getenv("MODE", "detection")
+    payload_file = os.getenv("PAYLOAD_FILE", "boolean_based") or None
 
     # target_path = "/ruta" para probar solo un endpoint concreto
     target_path = os.getenv("TARGET_PATH") or None
@@ -44,6 +45,7 @@ def main() -> None:
             swagger_path=swagger_path,
             engine=engine,
             mode=mode,
+            payload_file=payload_file,
             target_path=target_path,
             max_workers=10,
             base_url_override=base_url,
